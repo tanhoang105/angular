@@ -1,0 +1,50 @@
+<!-- <p class="title">Danh sách sinh viên</p> -->
+ <p class="title">{{title_demo()}}</p> 
+<!-- <p class="title">{{sub_title}}</p>  -->
+<div class="container">
+  <div class="row">
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th scope="col">ID</th>
+              <th scope="col">Tên</th>
+              <th scope="col">Weight</th>
+              <th scope="col">Height</th>
+              <th scope="col">Avatar</th>
+              <th scope="col">Action</th>
+            </tr>
+          </thead>
+          <tbody *ngIf="user.length > 0">
+            <tr *ngFor="let user of user" >
+              <td>{{user.id}}</td>
+              <td>{{user.name}}</td>
+              <td>{{user.weight}}</td>
+              <td>{{user.heigth}}</td>
+              <!-- <td>{{user.email}}</td> -->
+              <!-- <td><img width="100px" src="{{user.avatar}}" alt=""></td> -->
+              <td><img width="100px" [src]="user.avatar" alt=""></td>
+
+              <!-- sự kiện trong angular bỏ on -->
+              <td *ngIf="user.weight > 30">
+                <button         
+                (click)="remove_user(user.id)"
+                 class="btn btn-danger">Xóa
+                </button>
+
+              </td>
+
+              <td *ngIf="user.weight < 30">
+                <button         
+                (click)="messgae()"
+                 class="btn btn-danger">Xóa
+                </button>
+
+              </td>
+                
+            </tr>
+            
+
+          </tbody>
+        </table>
+  </div>
+</div>
