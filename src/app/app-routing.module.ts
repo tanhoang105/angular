@@ -1,7 +1,22 @@
-import { NgModule } from '@angular/core';
+import { NgModule } from '@angular/core'; 
+// định nghĩa các đường dẫn
 import { RouterModule, Routes } from '@angular/router';
 
-const routes: Routes = [];
+import { ProductComponent } from './product/product.component';
+
+import { StudentComponent } from './student/student.component';
+
+
+const routes: Routes = [
+  {
+    path : 'product',
+    component : ProductComponent
+  }, 
+  {
+    path : 'student',
+    component : StudentComponent
+  }
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
