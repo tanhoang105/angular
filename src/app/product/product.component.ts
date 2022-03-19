@@ -15,13 +15,13 @@ export class ProductComponent implements OnInit {
   // start working
   product = [
     {
-      id:0,
+      id:1,
       name: "SamSung",
       price : 12000000,
       desc : 'mô tả ngắn'
     },
     {
-      id:1,
+      id:2,
       name: "SamSung 1",
       price : 12000000,
       desc : 'mô tả ngắn'
