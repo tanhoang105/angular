@@ -25,6 +25,12 @@ export class ProductComponent implements OnInit {
       name: "SamSung 1",
       price : 12000000,
       desc : 'mô tả ngắn'
+    },
+    {
+      id:3,
+      name: "SamSung 3",
+      price : 12000000,
+      desc : 'mô tả ngắn'
     }
   ];
 
