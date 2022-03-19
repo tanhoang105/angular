@@ -15,13 +15,13 @@ export class ProductComponent implements OnInit {
   // start working
   product = [
     {
-      id:0,
+      id:1,
       name: "SamSung",
       price : 12000000,
       desc : 'mô tả ngắn'
     },
     {
-      id:1,
+      id:2,
       name: "SamSung 1",
       price : 12000000,
       desc : 'mô tả ngắn'
@@ -29,7 +29,7 @@ export class ProductComponent implements OnInit {
   ];
 
 
-  productShow = this.product;
+  // productShow = this.product;
 
   newProduct = {
     id : 0,
@@ -38,18 +38,23 @@ export class ProductComponent implements OnInit {
     desc : ''
   };
 
-  onSubmit(product:any){
+  onSubmit(data:any){
+      console.log(data);
       console.log(this.newProduct)
-      this.onValidate(this.newProduct)
+      if(!this.onValidate(this.newProduct)){
+        return;
+      }
       if(this.newProduct.id){
+        
           // nếu mà tồn tại thì nghĩa là chỉnh sửa
-         for (let index = 0; index < product.length; index++) {
+         for (let index = 0; index < this.product.length; index++) {
             if(this.product[index].id === this.newProduct.id){
-                this.product[index] = this.newProduct
+                this.product[index] = this.newProduct;
             }
            
          }
       }else{
+        console.log('đã thêm')
         // nghĩa là thêm mới 
         this.newProduct = {
           ...this.newProduct,
@@ -70,7 +75,7 @@ export class ProductComponent implements OnInit {
   }
 
   remove(id:number){
-    this.productShow = this.productShow.filter(e => e.id !== id)
+    this.product = this.product.filter(e => e.id !== id)
   }
 
   onValidate(o :any){

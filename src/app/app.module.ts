@@ -17,7 +17,8 @@ import { StudentComponent } from './student/student.component';
     LoginComponent,
     RegisterComponent,
     ProductComponent,
-    StudentComponent
+    StudentComponent,
+  
   ],
   imports: [
     // giúp khi chuyển trang sẽ ko bị reload
