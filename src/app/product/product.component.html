@@ -1,9 +1,9 @@
 <div class="container">
-     <p>{{productForm.value|json}}</p>
-     <p>{{newProduct|json}}</p>
+     <!-- <p>{{productForm.value|json}}</p>
+     <p>{{newProduct|json}}</p> -->
      <div class="row">
           <div class="col-md-6">
-               <form #productForm="ngForm" action="" method="post" (submit)="onSubmit(productForm.value)">
+               <!-- <form #productForm="ngForm" action="" method="post" (submit)="onSubmit(productForm.value)">
                     <div class="form-group">
                       <label for="">Product Name</label>
                       <input type="text" name="name" [(ngModel)]="newProduct.name" id="" class="form-control" placeholder="" aria-describedby="helpId" [value]="newProduct.name">
@@ -24,7 +24,22 @@
                          <button type="submit" class="btn btn-success" >Submit</button>
                          
                     </div>
-               </form>
+                    <div class="form-group">
+                         <br>
+                         <a [routerLink]="['/product/create']">
+                                   <button type="" class="btn btn-success" >Thêm mới</button>
+                         </a>
+                         
+                    </div>
+               </form> -->
+
+               <div class="form-group">
+                    <br>
+                    <a [routerLink]="['/product/create']">
+                              <button type="" class="btn btn-success" >Thêm mới</button>
+                    </a>
+                    
+               </div>
           </div>
 
           <div class="col-mg-6">
@@ -36,17 +51,22 @@
                               <td>Tên sản phẩm</td>
                               <td>Mô tả sản phẩm</td>
                               <td>Xóa</td>
-                              <td>Chỉnh</td>
+                              <!-- <td>Chỉnh</td> -->
                          </tr>
                     </thead>
-                    <tbody *ngIf="product.length > 0">
-                         <tr *ngFor="let p of product">
+                    <tbody >
+                         <tr *ngFor="let p of products">
                               <td>{{p.id}}</td>
                               <td>{{p.name}}</td>
                               <td>{{p.price}}</td>
                               <td>{{p.desc}}</td>
-                              <td><button class="btn btn-danger" (click)="remove(p.id)">Xóa</button></td>
-                              <td><button class="btn btn-warning" (click)="edit(p)">Sửa</button></td>
+                              <!-- <td><button class="btn btn-danger" (click)="remove(p.id)">Xóa</button></td>
+                              <td><button class="btn btn-warning" (click)="edit(p)">Sửa</button></td> -->
+                              <a [routerLink]="['/product' , p.id]">Xem chi tiet</a>
+                              <a [routerLink]="['/product' , p.id , 'edit']">Chỉnh sửa</a>
+                              <!-- <a [routerLink]="['/product/create']">Chỉnh sửa</a> -->
+                              <button (click)="onDelete(p.id)" >Xóa</button>
+
                          </tr>
                     </tbody>
                </table>

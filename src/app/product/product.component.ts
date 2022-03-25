@@ -1,5 +1,15 @@
 import { Component, OnInit } from '@angular/core';
+// import { type } from 'os';
+import { ProductService } from '../service/product.service';
 
+
+
+type PRODUCT_TYPE = {
+  id: number,
+  name : string,
+  desc : string,
+  price : number
+}
 @Component({
   selector: 'app-product',
   templateUrl: './product.component.html',
@@ -7,10 +17,34 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProductComponent implements OnInit {
 
-  constructor() { }
+
+  products:any;
+  constructor(private ps: ProductService) { }
 
   ngOnInit(): void {
+   this.getList();
+  
   }
+
+  getList(){
+    this.ps.getProducts().subscribe(data => {
+      this.products = data;
+      console.log(this.products);
+    })
+  }
+
+  onDelete(id:number | string){
+    if(id){
+      this.ps.deleteProduct(id).subscribe(data => {
+        // lên gọi lại hàm show thì nó sẽ đảm bảo hơn chứ ko nên dùng filter
+        this.getList();
+      })
+    }
+  }
+
+
+
+
 
   // start working
   product = [
@@ -35,7 +69,7 @@ export class ProductComponent implements OnInit {
   ];
 
 
-  // productShow = this.product;
+  productShow = this.product;
 
   newProduct = {
     id : 0,
@@ -98,4 +132,15 @@ export class ProductComponent implements OnInit {
   }
 
 
+
+  
+
+
+
+  // api
+
+  
+
 }
+
+

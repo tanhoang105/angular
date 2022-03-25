@@ -1,0 +1,16 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "Iphone1111",
+      "desc": "apple111111",
+      "price": 200000
+    },
+    {
+      "name": "hoàng nhật tân",
+      "desc": "mô tả ngắn",
+      "price": "12000000",
+      "id": 2
+    }
+  ]
+}
