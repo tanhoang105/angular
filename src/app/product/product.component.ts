@@ -64,7 +64,7 @@ export class ProductComponent implements OnInit {
       id:3,
       name: "SamSung 3",
       price : 12000000,
-      desc : 'mô tả ngắn'
+      desc : 'mô tả ngắn sản phẩm'
     }
   ];
 
